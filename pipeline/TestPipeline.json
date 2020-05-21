@@ -27,7 +27,7 @@
 								}
 							},
 							{
-								"name": "LoadTime",
+								"name": "LoadDate",
 								"value": {
 									"value": "@pipeline().TriggerTime",
 									"type": "Expression"
@@ -58,6 +58,22 @@
 								},
 								"sink": {
 									"name": "ID"
+								}
+							},
+							{
+								"source": {
+									"name": "PipelineName"
+								},
+								"sink": {
+									"name": "PipelineName"
+								}
+							},
+							{
+								"source": {
+									"name": "LoadDate"
+								},
+								"sink": {
+									"name": "LoadDate"
 								}
 							}
 						]
