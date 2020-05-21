@@ -1,6 +1,7 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "AzureSqlTable_Source",
 	"properties": {
+		"description": "Test source table.",
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase_Master",
 			"type": "LinkedServiceReference"
