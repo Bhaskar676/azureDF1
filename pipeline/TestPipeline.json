@@ -1,6 +1,7 @@
 {
-	"name": "pipeline1",
+	"name": "TestPipeline",
 	"properties": {
+		"description": "Demo purposes only. ",
 		"activities": [
 			{
 				"name": "Copy data1",
