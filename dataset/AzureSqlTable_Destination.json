@@ -27,6 +27,10 @@
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
+			},
+			{
+				"name": "ReversedName",
+				"type": "varchar"
 			}
 		],
 		"typeProperties": {
