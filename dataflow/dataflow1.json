@@ -26,7 +26,7 @@
 					"name": "DerivedColumn1"
 				}
 			],
-			"script": "parameters{\n\tPipelineName as string (\"TestDefault\"),\n\tLoadDate as timestamp (currentTimestamp())\n}\nsource(output(\n\t\tname as string,\n\t\tid as integer\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 derive(ReversedName = reverse(name),\n\t\tLoadDate = $LoadDate,\n\t\tPipelineName = $PipelineName) ~> DerivedColumn1\nDerivedColumn1 sink(input(\n\t\tNames as string,\n\t\tID as integer,\n\t\tPipelineName as string,\n\t\tLoadDate as timestamp,\n\t\tReversedName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table') ~> sink1"
+			"script": "parameters{\n\tPipelineName as string (\"TestDefault\"),\n\tLoadDate as timestamp (currentTimestamp())\n}\nsource(output(\n\t\tname as string,\n\t\tid as integer\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 derive(ReversedName = reverse(name),\n\t\tLoadDate = $LoadDate,\n\t\tPipelineName = $PipelineName) ~> DerivedColumn1\nDerivedColumn1 sink(input(\n\t\tNames as string,\n\t\tID as integer,\n\t\tPipelineName as string,\n\t\tLoadDate as timestamp,\n\t\tReversedName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tNames = name,\n\t\tID = id,\n\t\tPipelineName,\n\t\tLoadDate,\n\t\tReversedName\n\t)) ~> sink1"
 		}
 	}
 }
