@@ -117,7 +117,7 @@
 						"type": "DataFlowReference",
 						"parameters": {
 							"PipelineName": {
-								"value": "'@{pipeline().Pipeline}'",
+								"value": "@pipeline().Pipeline",
 								"type": "Expression"
 							},
 							"LoadDate": {
